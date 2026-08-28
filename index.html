@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud Deployment Dashboard</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#07152f,#102b68,#1746a2);
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:rgba(34,197,94,.12);
+    filter:blur(100px);
+    border-radius:50%;
+    top:-150px;
+    right:-100px;
+    z-index:-1;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:45px 25px;
+}
+
+.top{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.badge{
+    display:inline-block;
+    background:#22c55e;
+    padding:10px 25px;
+    border-radius:30px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin-bottom:20px;
+    animation:pulse 2s infinite;
+}
+
+h1{
+    font-size:52px;
+    margin-bottom:12px;
+}
+
+.subtitle{
+    color:#cbd5e1;
+    font-size:20px;
+}
+
+@keyframes pulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}
+    50%{box-shadow:0 0 25px 5px rgba(34,197,94,.2)}
+}
+
+.dashboard-title{
+    margin-bottom:20px;
+    font-size:24px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:22px;
+    padding:30px;
+    transition:.3s;
+    backdrop-filter:blur(10px);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    background:rgba(255,255,255,.17);
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.icon{
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+.card h2{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#cbd5e1;
+    line-height:1.6;
+}
+
+.status{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:18px;
+    font-weight:bold;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    background:#22c55e;
+    border-radius:50%;
+    box-shadow:0 0 12px #22c55e;
+}
+
+.architecture{
+    margin-top:45px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:22px;
+    padding:35px;
+    text-align:center;
+}
+
+.architecture h2{
+    margin-bottom:30px;
+}
+
+.flow{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.node{
+    background:#162f67;
+    border:1px solid rgba(255,255,255,.2);
+    padding:18px 25px;
+    border-radius:15px;
+    min-width:140px;
+    transition:.3s;
+}
+
+.node:hover{
+    transform:scale(1.08);
+}
+
+.arrow{
+    font-size:25px;
+    color:#22c55e;
+}
+
+.success{
+    margin-top:35px;
+    padding:20px;
+    border-radius:15px;
+    background:rgba(34,197,94,.12);
+    border:1px solid #22c55e;
+    color:#86efac;
+    text-align:center;
+    font-weight:bold;
+    letter-spacing:.5px;
+}
+
+.info{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.info-box{
+    background:rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:25px;
+}
+
+.info-box h3{
+    margin-bottom:12px;
+}
+
+.info-box p{
+    color:#cbd5e1;
+    line-height:1.6;
+}
+
+footer{
+    text-align:center;
+    margin-top:45px;
+    color:#94a3b8;
+}
+
+@media(max-width:800px){
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        font-size:38px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="top">
+        <div class="badge">☁️ CLOUD DEPLOYMENT</div>
+
+        <h1>My Cloud Project</h1>
+
+        <p class="subtitle">
+            AWS Infrastructure Simulation using LocalStack
+        </p>
+    </div>
+
+
+    <h2 class="dashboard-title">📊 Cloud Services Dashboard</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🪣</div>
+            <h2>Amazon S3</h2>
+            <p>
+                Stores and hosts the static website files using
+                S3 bucket storage.
+            </p>
+
+            <div class="status">
+                <span class="dot"></span>
+                ACTIVE
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">💻</div>
+            <h2>Amazon EC2</h2>
+            <p>
+                Provides the cloud compute environment for
+                running applications and services.
+            </p>
+
+            <div class="status">
+                <span class="dot"></span>
+                RUNNING
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">🔐</div>
+            <h2>Security Group</h2>
+            <p>
+                Controls inbound and outbound network access
+                to cloud resources.
+            </p>
+
+            <div class="status">
+                <span class="dot"></span>
+                ACTIVE
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="architecture">
+
+        <h2>🏗️ Cloud Architecture</h2>
+
+        <div class="flow">
+
+            <div class="node">
+                🌐<br>
+                <b>Browser</b>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="node">
+                🪣<br>
+                <b>S3 Website</b>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="node">
+                ☁️<br>
+                <b>LocalStack</b>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="node">
+                🐳<br>
+                <b>Docker</b>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="info">
+
+        <div class="info-box">
+            <h3>☁️ Infrastructure</h3>
+            <p>
+                This project simulates AWS cloud infrastructure
+                locally using LocalStack running inside Docker.
+            </p>
+        </div>
+
+        <div class="info-box">
+            <h3>🧪 Environment</h3>
+            <p>
+                AWS CLI commands are connected to the LocalStack
+                endpoint instead of the real AWS cloud.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="success">
+        🟢 STATUS: CLOUD PROJECT DEPLOYED SUCCESSFULLY
+    </div>
+
+
+    <footer>
+        Built and tested locally with Docker + LocalStack 🚀
+    </footer>
+
+</div>
+
+</body>
+</html>
